@@ -12,6 +12,7 @@
 
 # Getting Started with Backend
 
+### `cd backend`
 ### `npm start`
 
 # Getting Started with Frontend
@@ -20,6 +21,7 @@
 
 The first you can write on cli:
 
+### `cd frontend`
 ### `npm install`
 
 In the project directory, you can run:
