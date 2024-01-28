@@ -52,6 +52,18 @@ const getDetailPokemon = async (req,res)=>{
   
         const {id} = req.params;
         let response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        const base = response.data.base_experience
+        let level = ""
+        if(base >=0 && base <=50){
+            level = 99;
+        }else if(base >=51 && base <=100){
+            level = 70;
+        }else if(base >=101 && base <=150){
+            level = 50;
+        }else if(base >=151 && base <=10000){
+            level = 30;
+        }
+        
         res.json({
             id:parseInt(id),
             name:response.data.name,
@@ -59,7 +71,8 @@ const getDetailPokemon = async (req,res)=>{
             img:response.data.sprites.front_default,
             moves:response.data.moves[0].move,
             types:response.data.types[0].type,
-            base:response.data.base_experience
+            base:response.data.base_experience,
+            success:`The capture success rate is ${level}%`
         })
 
     }catch(error){
@@ -113,7 +126,7 @@ const catchPokemon = async (req,res)=>{
             sum += dt.same;
         
         }
-        if(check.length == 0){
+        if(check.length === 0){
             payload ={
                 id_pokemon:id,   
                 same:sum,

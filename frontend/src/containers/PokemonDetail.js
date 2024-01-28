@@ -10,9 +10,10 @@ const PokemonDetail = ()=>{
   const {pokemonId}=useParams();
   const history = useNavigate()
   const pokemon = useSelector((state)=>state.detPokemon)
-  const {id,name,img,moves,url, types,base}=pokemon
+  const {id,name,img,moves,url, types,base,success}=pokemon
   const data = useSelector((state)=>state.catchPokemons)
   const {message}=data
+
 
   const dispatch = useDispatch() 
 
@@ -53,6 +54,7 @@ const PokemonDetail = ()=>{
         position:'top-center',
         autoClose:5000
         })
+    
       history('/mypokemon')
       })
       .catch((err)=>{
@@ -79,12 +81,12 @@ useEffect(()=>{
               <div className="ui grid container">
               </div>
               <div className="ui grid container m-5">
-                <article className="media">
-                  <figure className="media-left">
-                    <p className="image is-256x256">
-                      <img src={img}/>
+                <article className="media box">
+                  <figure className="media-left image is-256x256">
+                 
+                      <img style={{ width:"300px" }} className="" src={img}/>
                   
-                    </p>
+            
                   </figure>
                   <div className="media-content">
                     <div className="content">
@@ -98,6 +100,10 @@ useEffect(()=>{
                         <input type="hidden" value={base} name="c_base" ref={() =>setBASE(base) }/>
                         <label className="label" >Moves : {moves.name}</label>
                         <label className="label">Type : {types.name}</label>
+                        {/* <label className="label">Success_rate : {success}</label> */}
+                        <div className="box has-background-primary-light">
+                          {success}
+                        </div>  
                       </p>
                     </div>
                 
@@ -105,7 +111,7 @@ useEffect(()=>{
                       <ToastContainer />
                     <form onSubmit={(event)=> handleSubmit(event)}>
 
-                      <div className="buttons">
+                      <div className="buttons mt-5">
                 
                         <button type="submit" onClick={notify} className="button is-success">Catch</button>
                  
