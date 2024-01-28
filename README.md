@@ -4,7 +4,7 @@
 <img width="700" alt="Screenshot 2024-01-27 at 08 55 17" src="https://github.com/panjiforlak/phincon/assets/61500001/6f278908-d226-4196-890e-2cbfb9b289a4">
 
 ## Detail 
-<img width="700" alt="Screenshot 2024-01-27 at 08 55 35" src="https://github.com/panjiforlak/phincon/assets/61500001/34fe8a6e-19a1-48ce-8c81-f94369e25bcd">
+<img width="700" alt="Screenshot 2024-01-28 at 14 34 45" src="https://github.com/panjiforlak/phincon/assets/61500001/83fdfeda-093b-42fc-bf05-cb7808dae65c">
 
 ## My Pokemon
 <img width="700" alt="Screenshot 2024-01-28 at 13 59 44" src="https://github.com/panjiforlak/phincon/assets/61500001/1f7e59c9-128e-4e1b-980c-eeac148f5010">
