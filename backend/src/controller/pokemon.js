@@ -63,7 +63,7 @@ const getDetailPokemon = async (req,res)=>{
         }else if(base >=151 && base <=10000){
             level = 30;
         }
-        
+
         res.json({
             id:parseInt(id),
             name:response.data.name,
@@ -92,7 +92,8 @@ const getMyPokemon = async (req,res)=>{
         let data=[]
         for (const dt of response) {
             let obj = {}
-            obj.id=dt.id_pokemon
+            obj.id=dt.id
+            obj.id_pokemon=dt.id_pokemon
             obj.name=dt.name +'-'+ dt.same
             obj.url=dt.url
             obj.img=dt.img
