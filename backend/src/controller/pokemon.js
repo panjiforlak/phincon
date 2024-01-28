@@ -104,26 +104,37 @@ const getMyPokemon = async (req,res)=>{
 const catchPokemon = async (req,res)=>{
     const {id,name,url,img,base} = req.body
     try{
-        const check = await Catches.findOne({where:{id_pokemon:id},order:[['id','DESC']]})
-        if(check==null){
-            console.log("as")
+        const check = await Catches.findAll({where:{id_pokemon:id},limit:2,order: [
+            ['id', 'DESC']]
+        })
+        let sum = 0
+        for (const dt of check) {
+            
+            sum += dt.same;
+        
+        }
+        if(check.length == 0){
             payload ={
                 id_pokemon:id,   
-                same:1,
+                same:sum,
                 name:name,
                 url:url,
                 img:img,
                 base:base
             }
+            
         }else{
+            
             payload ={
                 id_pokemon:id,
-                same:check.same+1,
+                same:sum==0?sum+1:sum,
                 name:name,
                 url:url,
                 img:img,
                 base:base
             }
+            
+          
         }
         let level = ""
         if(base >=0 && base <=50){
@@ -136,15 +147,28 @@ const catchPokemon = async (req,res)=>{
             level = 30;
         }
         
-        if(level < 50 ){
+        if(level > 49 && prima(base) == false){
 
             res.json({
-                message:`Pokemon is lost this Probability of ${level}%`
+                message:`pokemon successfully captured`,
+                data: {
+                    success_rate : level+'%',
+                    prima : prima(base)
+                }
             })
-        }else{
+            console.log(payload)
             Catches.create(payload)
+        
+        
+        }else{
+            
+            // console.log(payload)
             res.json({
-                message:`Success catched Pokemon, this Probability of ${level}%`
+                message:`Failed to catch the Pokemon`,
+                data :{ 
+                    success_rate:level+'%',
+                    prima : true
+                }
             })
         }
        
@@ -158,7 +182,16 @@ const catchPokemon = async (req,res)=>{
         console.log(error)
     }
 }
-
+// prima
+function prima (num) {
+    let status = true
+    for(var i = num-1; i>1; i--) {
+      if (num%i === 0) {
+        status = false
+      } 
+    }
+    return status
+  }
 module.exports ={
     getAllPokemon,
     getDetailPokemon,
