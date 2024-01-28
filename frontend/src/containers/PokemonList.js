@@ -50,8 +50,8 @@ const PokemonList = () => {
       <div className="ui grid container is-widescreen">
         {Object.keys(pokemons).length === 0 ? (
           <div className=" container is-max-desktop m-5">
-            <div class="mt-5 is-primary">
-              <progress class="progress is-small " max="100">
+            <div className="mt-5 is-primary">
+              <progress className="progress is-small " max="100">
                 100%
               </progress>
             </div>
