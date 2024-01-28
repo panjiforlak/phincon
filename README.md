@@ -7,7 +7,7 @@
 <img width="700" alt="Screenshot 2024-01-27 at 08 55 35" src="https://github.com/panjiforlak/phincon/assets/61500001/34fe8a6e-19a1-48ce-8c81-f94369e25bcd">
 
 ## My Pokemon
-<img width="700" alt="Screenshot 2024-01-27 at 08 56 24" src="https://github.com/panjiforlak/phincon/assets/61500001/45c29417-23ea-428d-a79a-9e20facc0f5f">
+<img width="700" alt="Screenshot 2024-01-28 at 13 59 44" src="https://github.com/panjiforlak/phincon/assets/61500001/1f7e59c9-128e-4e1b-980c-eeac148f5010">
 
 
 # Getting Started with Backend
